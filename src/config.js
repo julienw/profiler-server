@@ -10,6 +10,7 @@ const conf = convict({
     format: Number,
     default: 4243,
     env: 'HTTP_PORT',
+    arg: 'httpPort',
   },
 });
 
