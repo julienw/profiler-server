@@ -58,8 +58,9 @@ server in production.
 
 Here are the log levels we can use:
 * trace: this will gather a stack automatically. Note this is displayed only
-  when running the server with `LOG_LEVEL=trace`.
-* verbose: this is displayed only when runnint the server with `LOG_LEVEL=verbose` or `trace`.
+  when running the server with `LOG_LEVEL=trace`. This is also very useful when
+  debugging tests.
+* verbose: this is displayed only when running the server with `LOG_LEVEL=verbose` or `trace`.
 * debug: by default this is displayed in test and development environments.
 * info: this is displayed in production environment too.
 * warn: this is for messages more important than info but that aren't errors.
