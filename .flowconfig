@@ -1,8 +1,0 @@
-[options]
-include_warnings=true
-
-[ignore]
-.*node_modules/.*
-
-[libs]
-src/types/libdef
