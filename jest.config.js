@@ -3,7 +3,7 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 // @flow
 
-module.exports = {
+export default {
   collectCoverageFrom: [
     'src/**/*.js',
     '!**/node_modules/**',

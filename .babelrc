@@ -1,6 +1,6 @@
 {
   presets: [
-    ["@babel/preset-env", { targets: { node: true }}],
+    ["@babel/preset-env", { targets: { node: true }, modules: false }],
     // The "all" property is needed for Flow to properly parse the syntax. It has
     // trouble understanding when the flow comment is the second comment.
     // See: https://github.com/babel/babel/issues/9845

@@ -3,6 +3,7 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 // @flow
 
+import { jest } from '@jest/globals';
 import supertest from 'supertest';
 
 import { createApp } from '../../src/app';

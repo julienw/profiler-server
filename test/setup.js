@@ -3,6 +3,7 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 // @flow
 
+import { jest } from '@jest/globals';
 import nock from 'nock';
 
 // Forbid connections to Internet. We should have a test error if we attempt

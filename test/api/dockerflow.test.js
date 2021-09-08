@@ -3,6 +3,7 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 // @flow
 
+import { jest } from '@jest/globals';
 import request from 'supertest';
 import nock from 'nock';
 import fs from 'fs';
@@ -57,6 +58,11 @@ describe('dockerflow endpoints', () => {
     const agent = setup();
 
     return { agent, nockScope };
+  }
+
+  function getVersionFixture() {
+    // $FlowFixMe big hack to support import.meta.url, see https://github.com/facebook/flow/issues/6913
+    return JSON.parse(fs.readFileSync(new URL('./fixtures/version.json', import/*:: ('') */.meta.url)));
   }
 
   describe('__heartbeat__', () => {
@@ -131,7 +137,7 @@ describe('dockerflow endpoints', () => {
     });
 
     it('answers to the version endpoint when the file is present', async () => {
-      const fixture = require('./fixtures/version.json');
+      const fixture = getVersionFixture();
       const fakeLastModifiedDate = new Date('Thu, 01 May 2020 10:20:15 GMT');
       jest.spyOn(fs.promises, 'readFile').mockResolvedValue(fixture);
       jest
@@ -150,7 +156,7 @@ describe('dockerflow endpoints', () => {
   });
 
   it('all endpoints uses security headers', async () => {
-    const fixture = require('./fixtures/version.json');
+    const fixture = getVersionFixture();
     jest.spyOn(fs.promises, 'readFile').mockResolvedValue(fixture);
     jest.spyOn(fs.promises, 'stat').mockResolvedValue({ mtime: new Date() });
 
